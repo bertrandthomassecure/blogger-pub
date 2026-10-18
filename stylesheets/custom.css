@@ -1,0 +1,4 @@
+/* LOT-056 : les couleurs KPI (les gains/deltas/tendances) — GOV-6 la forme */
+.kpi-vert { color: #16a34a; font-weight: bold; }
+.kpi-rouge { color: #dc2626; font-weight: bold; }
+.kpi-ref { color: #6b7280; font-weight: bold; }
