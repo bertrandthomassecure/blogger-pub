@@ -501,11 +501,11 @@
 La fiche officielle de DeepSeek-V4.1-Flash-1017 est consultable et détaillée — voici les
 chiffres, le comparatif qu'elle fournit, et ce qu'ils changent pour vos décisions.
 <em>Cet article couvre l'usage API (le coût par million de tokens). L'inférence locale
-(VRAM, hardware) reste hors périmètre, par choix éditorial. La source = la fiche
-officielle de DeepSeek ; les données = déclarées par l'éditeur, non vérifiées par un
+(VRAM, hardware) reste hors périmètre, par choix éditorial. La source vient de la fiche
+officielle de DeepSeek ; les données sont déclarées par l'éditeur, non vérifiées par un
 tiers.</em></p>
 <h2 id="les-benchmarks-internes-fiche-officielle-1017-vs-la-version-precedente">Les benchmarks internes (fiche officielle — 1017 vs la version précédente)</h2>
-<p><em>Ces comparaisons = sur le MÊME harnais, selon DeepSeek (l'annonce de l'éditeur, non
+<p><em>Ces comparaisons portent sur le MÊME harnais, selon DeepSeek (l'annonce de l'éditeur, non
 vérifiée par un tiers). Selon la fiche officielle, l'itération 1017 affiche des gains déclarés sur les
 11 benchmarks publiés (auto-déclarés, non vérifiés par un tiers) :</em></p>
 <table>
@@ -515,7 +515,6 @@ vérifiée par un tiers). Selon la fiche officielle, l'itération 1017 affiche d
 <th>Flash-1017</th>
 <th>Flash (précédent)</th>
 <th>Gain</th>
-<th>Signal</th>
 </tr>
 </thead>
 <tbody>
@@ -524,84 +523,75 @@ vérifiée par un tiers). Selon la fiche officielle, l'itération 1017 affiche d
 <td>42,6</td>
 <td>36,8</td>
 <td>+5,8</td>
-<td>✅</td>
 </tr>
 <tr>
 <td>Terminal-Bench 4.0 (Claude Code)</td>
 <td>42,3</td>
 <td>31,2</td>
 <td>+11,1</td>
-<td>✅</td>
 </tr>
 <tr>
 <td>DeepSWE v1.1 (Mini-SWE-V2)</td>
 <td>77,0</td>
 <td>74,2</td>
 <td>+2,8</td>
-<td>✅</td>
 </tr>
 <tr>
 <td>ProgramBench</td>
 <td>29,1</td>
 <td>20,3</td>
 <td>+8,8</td>
-<td>✅</td>
 </tr>
 <tr>
 <td>NL2Repo-Bench</td>
 <td>68,2</td>
 <td>65,4</td>
 <td>+2,8</td>
-<td>✅</td>
 </tr>
 <tr>
 <td>Automation-Bench v1.0.6</td>
 <td>60,5</td>
 <td>54,8</td>
 <td>+5,7</td>
-<td>✅</td>
 </tr>
 <tr>
 <td>Agents' Last Exam</td>
 <td>35,4</td>
 <td>31,8</td>
 <td>+3,6</td>
-<td>✅</td>
 </tr>
 <tr>
 <td>Apex Bench v1.1</td>
 <td>72,1</td>
 <td>64,6</td>
 <td>+7,5</td>
-<td>✅</td>
 </tr>
 <tr>
 <td>Chartography (w/tools)</td>
 <td>83,0</td>
 <td>78,9</td>
 <td>+4,1</td>
-<td>✅</td>
 </tr>
 <tr>
 <td>BabyVision</td>
 <td>92,5</td>
 <td>89,6</td>
 <td>+2,9</td>
-<td>✅</td>
 </tr>
 <tr>
 <td>ZeroBench-main</td>
 <td>51,0</td>
 <td>49,0</td>
 <td>+2,0</td>
-<td>✅</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Les gains les plus marquants</strong> : Terminal-Bench (+11,1) et ProgramBench (+8,8). Le
-code et l'agentique dominent cette itération. Les gains les plus modestes concernent
-BabyVision et ZeroBench (+2 à +3). La nature exacte de ces benchmarks = à vérifier
-dans la fiche (l'article ne les qualifie pas).</p>
+code et l'agentique dominent cette itération. Les gains les plus faibles se tiennent
+dans un intervalle étroit : +2,0 (ZeroBench) à +3,6 (Agents' Last Exam) — BabyVision
+(+2,9), DeepSWE (+2,8), NL2Repo-Bench (+2,8) et Agents' Last Exam (+3,6) partagent cette
+plancher des gains. Les natures de BabyVision et ZeroBench ne sont pas qualifiées par la
+fiche : elles portent le même niveau de prudence que les comparatifs concurrents.</p>
 <h2 id="le-comparatif-concurrents-chiffres-auto-declares-par-lediteur">Le comparatif concurrents (chiffres auto-déclarés par l'éditeur)</h2>
 <blockquote>
 <p><strong>⚠️ DONNÉES ÉDITEUR NON VÉRIFIÉES</strong> — Ce tableau compare des chiffres que DeepSeek a
@@ -610,70 +600,69 @@ harnais d'évaluation peuvent différer d'un modèle à l'autre, et la mesure HL
 concurrents (hors GLM) n'est pas précisée par la fiche. À lire comme un point de
 repère éditorial, pas comme un classement.</p>
 </blockquote>
-<p>La fiche cite quatre concurrents sur HLE. La mesure d'évaluation (w/o tools ou text-only) n'est précisée par l'éditeur que pour GLM-5.3 (text-only) — les trois autres ne portent que « HLE », sans qualification : aucun écart inter-modèles n'est calculé. Les scores bruts, avec le Flash-1017 (42,6 w/o tools) comme ligne de référence :</p>
+<p>La fiche cite quatre concurrents : K3 explicitement sous l'étiquette « HLE » et GLM-5.3 explicitement en text-only — <strong>les deux seuls protocoles documentés par la fiche</strong> — GPT-5.6 Sol et Opus 5 avec des scores cités sans aucune étiquette de benchmark. Aucun écart inter-modèles n'est calculé. Les scores bruts sont listés par ordre alphabétique — pas par valeur — avec le Flash-1017 (42,6, HLE w/o tools) comme ligne de référence :</p>
 <table>
 <thead>
 <tr>
 <th>Modèle</th>
-<th>HLE</th>
+<th>Score (protocole)</th>
 <th>Écart</th>
 <th>Tendance</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Opus 5</td>
-<td>56,3</td>
-<td>n/c</td>
-<td>le score brut le plus élevé cité</td>
-</tr>
-<tr>
-<td>GPT-5.6 Sol</td>
-<td>44,5</td>
-<td>n/c</td>
-<td>le score brut proche</td>
-</tr>
-<tr>
-<td>K3</td>
-<td>43,5</td>
-<td>n/c</td>
-<td>le score brut proche</td>
-</tr>
-<tr>
-<td><strong>Flash-1017 (w/o tools)</strong></td>
-<td><strong>42,6</strong></td>
+<td><strong>Flash-1017</strong></td>
+<td><strong>42,6</strong> (HLE w/o tools)</td>
 <td>référence</td>
 <td>⚖️</td>
 </tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td>44,5 (protocole non précisé)</td>
+<td>n/c</td>
+<td>score brut cité</td>
+</tr>
+<tr>
+<td>K3</td>
+<td>43,5 (HLE)</td>
+<td>n/c</td>
+<td>score brut cité</td>
+</tr>
+<tr>
+<td>Opus 5</td>
+<td>56,3 (protocole non précisé)</td>
+<td>n/c</td>
+<td>score brut cité</td>
+</tr>
 </tbody>
 </table>
-<p>*Lecture : la colonne Tendance décrit les scores bruts en texte (aucun symbole
-comparatif : les mesures ne sont pas toutes comparables) · ⚖️ = la ligne de référence.</p>
-<p>* <strong>Deux mesures HLE coexistent</strong> dans ce tableau et ne sont PAS comparables entre
-elles : « w/o tools » (le test standard, notre référence à 42,6) et « text-only » (†, le
-sous-ensemble sans images). Les écarts entre modèles = n/c (non calculés) : les mesures différentes (text-only
-vs w/o tools) ne se comparent pas. Le lecteur compare un modèle à la fois. Les chiffres de tous les
-modèles = cités par la fiche officielle de DeepSeek, non vérifiés indépendamment ; les
+<p>*Lecture : le protocole figure dans la cellule du score (la colonne ne mélange aucune mesure) · la colonne Tendance décrit les scores bruts en texte (aucun symbole comparatif) · l'emoji ⚖️ marque la ligne de référence.</p>
+<p>* <strong>Deux protocoles de mesure proches mais distincts figurent dans ce tableau</strong> : la ligne de référence (42,6, w/o tools) et K3 (43,5, « HLE » selon la fiche) — les protocoles distincts, donc
+les écarts entre modèles ne sont pas calculés (n/c). La mesure <strong>text-only</strong> (†) n'apparaît
+pas dans ce tableau : elle vit dans l'encart distinct ci-dessous. Les chiffres de tous les
+modèles sont cités par la fiche officielle de DeepSeek, non vérifiés indépendamment ; les
 harnais peuvent différer d'un modèle à l'autre.*</p>
 <p><strong>Encart distinct — la mesure text-only (hors tableau, non comparable au w/o tools)</strong> :
-GLM-5.3 = 42,0 · Flash-1017 = 44,0. La lecture 42,6 &gt; 42,0 serait un mélange de
-mesures — le lecteur compare un modèle à la fois. (La nature † = documentée dans
+GLM-5.3 obtient 42,0 et Flash-1017 text-only 44,0. Pour la génération Flash précédente,
+la fiche donne « 36,8 (39,1) » sans qualifer la seconde valeur : la mesure des deux
+notations reste non précisée. La lecture 42,6 &gt; 42,0 serait un mélange de
+mesures — le lecteur compare un modèle à la fois. (La nature du † est documentée dans
 la fiche pour GLM-5.3 seulement.)</p>
 <p>Trois niveaux se lisent d'un coup d'œil :</p>
-<ol>
-<li><strong>Opus 5 affiche le score brut le plus élevé cité</strong> (56,3) — les autres scores
-   bruts : GPT-5.6 Sol (44,5), K3 (43,5), Flash-1017 (42,6). Les mesures des
-   concurrents n'étant pas qualifiées par la fiche (le † = documenté pour GLM-5.3
-   seulement), aucun écart n'est calculé.</li>
+<ul>
+<li><strong>L'étendue des scores bruts cités (42,6 → 56,3)</strong> : la fiche cite les quatre
+   modèles sans qualifier les protocoles des trois concurrents (le † est documenté
+   pour GLM-5.3 seulement) — aucun écart n'est calculé, et l'étendue ne préjuge
+   d'aucun classement.</li>
 <li><strong>Les scores bruts numériquement proches (42,6-44,5)</strong> : GPT-5.6 Sol, K3 et le
    Flash-1017 citent des scores dans un intervalle étroit — la fiche ne documente
-   pas les harnais des concurrents : l'écart n'est pas calculé et la proximité ne
-   préjuge pas des performances comparées. À ce niveau, le choix se fait sur le
-   <strong>prix</strong>, pas sur des points.</li>
+   pas les harnais des concurrents : la proximité ne préjuge pas des performances
+   comparées. À ce niveau, le choix se fait sur le <strong>prix</strong>, pas sur des points.</li>
 <li><strong>Le créneau du flash</strong> : le rapport qualité/coût — une affirmation de l'éditeur
    (aucun prix n'est publié dans la fiche officielle : à vérifier à l'usage). C'est là
-   que le modèle joue, pas au premier rang.</li>
-</ol>
+   que le modèle joue — pas sur le score brut.</li>
+</ul>
 <h2 id="les-specifications-qui-pesent-dans-la-decision">Les spécifications qui pèsent dans la décision</h2>
 <ul>
 <li><strong>Licence MIT</strong> (les poids et le dépôt) : aucune contrainte légale d'adoption ;</li>
@@ -689,18 +678,19 @@ la fiche pour GLM-5.3 seulement.)</p>
 <h2 id="conclusion-3-decisions-concretes">Conclusion : 3 décisions concrètes</h2>
 <ol>
 <li><strong>Le volume et les agents simples</strong> : les gains de code (+11 Terminal-Bench, +8,8
-   ProgramBench) font du Flash-1017 un candidat rationnel si le coût par million de
-   tokens est votre critère dominant.</li>
-<li><strong>Le code complexe</strong> : Opus 5 affiche le score le plus élevé selon les chiffres
-   cités — un écart entre protocoles différents ne se chiffre pas : <strong>testez vos
+   ProgramBench) font du Flash-1017 un candidat rationnel pour le volume — mais la
+   fiche officielle ne publie aucun prix : l'argument coût reste à confirmer quand les
+   tarifs seront publics. Décidez sur les scores bruts et votre propre test, pas sur
+   une économie hypothétique.</li>
+<li><strong>Le code complexe</strong> : Opus 5 affiche le score brut le plus haut selon les chiffres de l'éditeur — les protocoles des concurrents ne sont pas tous précisés, un écart entre protocoles différents ne se chiffre pas : <strong>testez vos
    propres tâches</strong> avant de conclure.</li>
 <li><strong>La vérification en 15 minutes</strong> : vos trois prompts les plus représentatifs sur
    le Flash-1017 et sur votre modèle actuel, avec le sampling recommandé. Le seul
    benchmark qui compte est le vôtre.</li>
 </ol>
-<p><em>Les chiffres : selon la fiche officielle DeepSeek (les comparaisons inter-modèles =
+<p><em>Les chiffres : selon la fiche officielle DeepSeek (les comparaisons inter-modèles restent
 déclarés par l'éditeur, non vérifiés indépendamment).</em></p>
-<p><sub>Doc v19.13 — hash_corps:v2:efb6ceba2671014f</sub></p>
+<p><sub>Doc v19.23 — hash_corps:v2:ef3b567dc34970fa</sub></p>
 <h2 id="sources-citees">Sources citées</h2>
 <ul>
 <li><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017">DeepSeek-V4.1-Flash-1017 — la fiche officielle (Hugging Face)</a> — la source primaire (les chiffres de l'éditeur)</li>
